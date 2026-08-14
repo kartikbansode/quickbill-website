@@ -700,6 +700,24 @@ a:hover {
   flex-wrap: wrap;
 }
 
+.text-latest {
+  color: var(--success);
+  font-size: 13px;
+  font-weight: 500;
+  background: #e7f1e8;
+  border: 1px solid #b9d3bd;
+  padding: 2px 8px;
+}
+
+.text-muted {
+  color: var(--muted);
+  font-size: 13px;
+  font-style: italic;
+  background: #f5f6f7;
+  border: 1px solid #d4dce2;
+  padding: 2px 8px;
+}
+
 .download-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
