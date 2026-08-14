@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+        content="QuickBill ecosystem — QuickBill Desktop, Barcode Scanner, and Customer Display working together as a complete billing and POS system.">
+    <meta name="keywords"
+        content="QuickBill ecosystem, billing software, POS, barcode scanner, customer display, desktop billing">
+    <meta name="author" content="Kartik Bansode">
+
+    <title>QuickBill Ecosystem — Desktop, Barcode Scanner &amp; Customer Display</title>
+
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+    <header class="site-header">
+
+        <div class="topbar">
+            <div class="container topbar-inner">
+
+                <a class="brand" href="index.html" aria-label="QuickBill home">
+                    <img class="brand-logo" src="assets/images/quickbill-logo.png" alt="QuickBill" width="42"
+                        height="42">
+                    <span class="brand-name">QuickBill</span>
+                </a>
+
+                <div class="top-links">
+                    <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                    <a href="downloads.html" class="top-download">
+                        Download
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <div class="container nav-inner">
+                <a href="index.html">Home</a>
+                <a href="downloads.html">Downloads</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="changelog.html">Changelog</a>
+                <a class="active" href="ecosystem.html" aria-current="page">Ecosystem</a>
+                <a href="about.html">About</a>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+       MAIN CONTENT
+  ========================================================== -->
+
+    <main class="page">
+
+        <div class="container narrow">
+
+            <div class="page-title">
+                <p class="eyebrow">QUICKBILL PLATFORM</p>
+                <h1>The QuickBill Ecosystem</h1>
+                <p>
+                    The QuickBill ecosystem combines a Windows desktop billing
+                    application with Android companion applications for barcode input
+                    and customer-facing display.
+                </p>
+            </div>
+
+
+            <!-- =====================================================
+           OVERVIEW
+      ====================================================== -->
+
+            <section id="overview" class="standard-section">
+                <h2>Overview</h2>
+                <p>
+                    QuickBill is built around three focused applications:
+                </p>
+                <ul>
+                    <li>
+                        <strong>QuickBill Desktop</strong> — the core Windows billing
+                        and POS application, and the authoritative source of billing data
+                    </li>
+                    <li>
+                        <strong>QuickBill Barcode Scanner</strong> — an Android companion
+                        for barcode input
+                    </li>
+                    <li>
+                        <strong>QuickBill Customer Display</strong> — an Android companion
+                        for real-time customer-facing bill and payment display
+                    </li>
+                </ul>
+                <p>
+                    Companion applications connect to QuickBill Desktop. They do not
+                    replace the desktop application and do not act as independent
+                    billing systems.
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           ARCHITECTURE DIAGRAM
+      ====================================================== -->
+
+            <section id="architecture" class="standard-section">
+                <h2>Architecture</h2>
+                <p>
+                    QuickBill Desktop is the central application. Companion applications
+                    provide input and display support around it.
+                </p>
+
+                <div class="architecture">
+                    <div class="architecture-main">
+                        <strong>QuickBill Desktop</strong>
+                        <span>Windows · Core billing &amp; POS · Source of truth</span>
+                    </div>
+                    <div class="architecture-connectors">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="architecture-apps">
+                        <div>
+                            <strong>Barcode Scanner</strong>
+                            <span>Android · Input companion</span>
+                        </div>
+                        <div>
+                            <strong>Customer Display</strong>
+                            <span>Android · Customer-facing display</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+           SOURCE OF TRUTH
+      ====================================================== -->
+
+            <section id="source-of-truth" class="standard-section">
+                <h2>Source of Truth</h2>
+                <p>
+                    <strong>QuickBill Desktop is the authoritative billing and payment
+                        system.</strong>
+                    It manages:
+                </p>
+                <ul>
+                    <li>Products</li>
+                    <li>Inventory</li>
+                    <li>Cart state</li>
+                    <li>Bills</li>
+                    <li>Transactions</li>
+                    <li>Payment state</li>
+                    <li>Customer information</li>
+                    <li>Invoice generation</li>
+                </ul>
+                <p>
+                    Companion applications provide supporting functionality:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Barcode Scanner</strong> — provides barcode input to the
+                        desktop application
+                    </li>
+                    <li>
+                        <strong>Customer Display</strong> — receives and displays billing
+                        and payment state from the desktop application
+                    </li>
+                </ul>
+                <p>
+                    The Customer Display does not calculate or modify the bill. The
+                    desktop application remains fully functional if a companion
+                    application is disconnected.
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           COMPARISON TABLE
+      ====================================================== -->
+
+            <section id="comparison" class="standard-section">
+                <h2>Application Comparison</h2>
+
+                <div class="table-responsive">
+                    <table class="eco-table">
+                        <thead>
+                            <tr>
+                                <th>Application</th>
+                                <th>Platform</th>
+                                <th>Primary role</th>
+                                <th>Main responsibilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>QuickBill Desktop</strong></td>
+                                <td>Windows 10 / 11</td>
+                                <td>Core billing &amp; POS</td>
+                                <td>
+                                    Products, inventory, cart, bills, payments, invoices,
+                                    bill history, companion communication
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Barcode Scanner</strong></td>
+                                <td>Android 8.0+</td>
+                                <td>Input companion</td>
+                                <td>
+                                    Camera barcode scanning, continuous scanning, network
+                                    camera stream for desktop
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Display</strong></td>
+                                <td>Android 8.0+</td>
+                                <td>Customer-facing display</td>
+                                <td>
+                                    Real-time bill items, totals, payment state, UPI QR,
+                                    success screen
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+           DATA FLOW
+      ====================================================== -->
+
+            <section id="data-flow" class="standard-section">
+                <h2>Information Flow</h2>
+                <p>
+                    Conceptual flow during normal use:
+                </p>
+                <ol>
+                    <li>
+                        Products and billing information are managed by
+                        <strong>QuickBill Desktop</strong>.
+                    </li>
+                    <li>
+                        Barcode scanning (USB scanner, camera, or the Barcode Scanner
+                        companion app) can provide product or barcode input to the
+                        desktop application.
+                    </li>
+                    <li>
+                        QuickBill Desktop processes the billing workflow: items,
+                        quantities, tax, discounts, totals, and payment.
+                    </li>
+                    <li>
+                        Customer-facing billing and payment state can be sent to the
+                        <strong>Customer Display</strong>.
+                    </li>
+                    <li>
+                        The Customer Display presents that state to the customer
+                        (items, totals, payment information, UPI QR, success state).
+                    </li>
+                </ol>
+                <p>
+                    The desktop application remains the source of cart, bill, and
+                    payment state at every step.
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           REAL-WORLD WORKFLOW
+      ====================================================== -->
+
+            <section id="workflow" class="standard-section">
+                <h2>How the Ecosystem Works During a Sale</h2>
+                <ol>
+                    <li>
+                        The operator works in <strong>QuickBill Desktop</strong> on a
+                        Windows PC at the counter.
+                    </li>
+                    <li>
+                        Products are added to the bill manually or through barcode input
+                        (USB scanner, camera, or the Android Barcode Scanner app).
+                    </li>
+                    <li>
+                        QuickBill Desktop updates the current bill: items, quantities,
+                        tax, discounts, and totals.
+                    </li>
+                    <li>
+                        If a Customer Display is connected, it shows the current bill
+                        items and totals to the customer in real time.
+                    </li>
+                    <li>
+                        The operator selects a payment method (Cash, UPI, Card, or Credit).
+                        For UPI, a dynamic QR can be generated and shown on the Customer
+                        Display.
+                    </li>
+                    <li>
+                        After payment is completed, QuickBill Desktop finalizes the
+                        transaction. The Customer Display can show the payment success
+                        state.
+                    </li>
+                    <li>
+                        Invoices can be generated and printed from the desktop
+                        application (A4 or 80 mm). Previous bills remain available in
+                        billing history.
+                    </li>
+                </ol>
+            </section>
+
+
+            <!-- =====================================================
+           DEVICE / ROLE
+      ====================================================== -->
+
+            <section id="roles" class="standard-section">
+                <h2>Typical Device Roles</h2>
+                <div class="role-grid">
+                    <div class="role-card">
+                        <div class="product-number">COUNTER</div>
+                        <h3>Windows PC</h3>
+                        <p>
+                            <strong>QuickBill Desktop</strong> — operator billing, product
+                            management, payments, invoices, and history.
+                        </p>
+                    </div>
+                    <div class="role-card">
+                        <div class="product-number">INPUT</div>
+                        <h3>Android Phone</h3>
+                        <p>
+                            <strong>Barcode Scanner</strong> — optional wireless barcode
+                            scanning for the desktop application.
+                        </p>
+                    </div>
+                    <div class="role-card">
+                        <div class="product-number">CUSTOMER</div>
+                        <h3>Android Tablet / Display</h3>
+                        <p>
+                            <strong>Customer Display</strong> — optional real-time
+                            customer-facing bill and payment display.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Companion devices must be on the same local network as the Windows
+                    computer running QuickBill Desktop.
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           QUICKBILL DESKTOP
+      ====================================================== -->
+
+            <section id="desktop" class="standard-section">
+                <div class="product-number">01</div>
+                <h2>QuickBill Desktop</h2>
+                <p>
+                    The core Windows billing and POS application. It is the central
+                    system and the authoritative source of billing data.
+                </p>
+
+                <h3>Platform</h3>
+                <p>Windows 10 / Windows 11</p>
+
+                <h3>Role</h3>
+                <p>Core billing and POS application · Source of truth</p>
+
+                <h3>Responsibilities</h3>
+                <ul>
+                    <li>Product management (add, edit, delete, search)</li>
+                    <li>Inventory and stock management</li>
+                    <li>Cart and bill state</li>
+                    <li>Manual and barcode-based item entry</li>
+                    <li>Tax and discount handling</li>
+                    <li>Payment workflows (Cash, UPI, Card, Credit)</li>
+                    <li>Dynamic UPI QR generation</li>
+                    <li>Professional PDF invoice generation (A4 and 80 mm)</li>
+                    <li>Bill history, search, and reprint</li>
+                    <li>Hold and resume bills</li>
+                    <li>Communication with companion applications</li>
+                </ul>
+
+                <h3>How it fits</h3>
+                <p>
+                    All authoritative billing and payment decisions happen in QuickBill
+                    Desktop. Companion apps provide input or display support only.
+                </p>
+
+                <p>
+                    <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+                        View repository &rarr;
+                    </a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="documentation.html#desktop">Documentation</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="downloads.html">Downloads</a>
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           BARCODE SCANNER
+      ====================================================== -->
+
+            <section id="barcode-scanner" class="standard-section">
+                <div class="product-number">02</div>
+                <h2>QuickBill Barcode Scanner</h2>
+                <p>
+                    A companion Android application that turns a phone into a dedicated
+                    barcode scanner and network camera for QuickBill Desktop.
+                </p>
+
+                <h3>Platform</h3>
+                <p>Android 8.0 (API 26) or higher · Device with camera</p>
+
+                <h3>Role</h3>
+                <p>Input companion · Not a billing application</p>
+
+                <h3>Capabilities</h3>
+                <ul>
+                    <li>Android camera barcode scanner</li>
+                    <li>Real-time barcode detection</li>
+                    <li>Network camera streaming</li>
+                    <li>QuickBill Desktop integration</li>
+                    <li>Automatic IP address configuration</li>
+                    <li>Continuous scanning</li>
+                    <li>Duplicate scan prevention</li>
+                    <li>Camera selection</li>
+                    <li>Scanner settings and customization</li>
+                </ul>
+
+                <h3>How it fits</h3>
+                <p>
+                    The Android device acts as a wireless barcode scanner for the
+                    desktop billing application. Barcode information is used by
+                    QuickBill Desktop for product lookup and billing. The scanner does
+                    not store or manage the authoritative bill.
+                </p>
+                <p>
+                    The phone and Windows computer must be on the same local network.
+                    The displayed device/network address can be configured in QuickBill
+                    Desktop under Scanner Settings.
+                </p>
+
+                <p>
+                    <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app" target="_blank"
+                        rel="noopener noreferrer">
+                        View repository &rarr;
+                    </a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app/releases/download/v1.0.0/QuickBill-Barcode-Scanner-v1.0.0.apk"
+                        target="_blank" rel="noopener noreferrer">
+                        Download APK v1.0.0
+                    </a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="documentation.html#barcode-scanner-app">Documentation</a>
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           CUSTOMER DISPLAY
+      ====================================================== -->
+
+            <section id="customer-display" class="standard-section">
+                <div class="product-number">03</div>
+                <h2>QuickBill Customer Display</h2>
+                <p>
+                    A companion Android application that provides a real-time
+                    customer-facing display for bill items, totals, payment information,
+                    UPI QR, and payment success state.
+                </p>
+
+                <h3>Platform</h3>
+                <p>Android tablet · Android 8.0 (API 26) or newer</p>
+
+                <h3>Role</h3>
+                <p>Customer-facing display companion · Not the source of truth</p>
+
+                <h3>Capabilities</h3>
+                <ul>
+                    <li>Real-time bill updates</li>
+                    <li>Customer and cashier information</li>
+                    <li>Itemized billing display (quantity, rate, amount)</li>
+                    <li>Subtotal, tax, discount, and total</li>
+                    <li>Cash, UPI, Card, and Credit payment display</li>
+                    <li>Dynamic UPI QR display</li>
+                    <li>Payment pending and payment success screens</li>
+                    <li>Automatic return to welcome screen</li>
+                    <li>Full-screen tablet interface</li>
+                    <li>Automatic reconnection to QuickBill Desktop</li>
+                    <li>Graceful disconnected state</li>
+                </ul>
+
+                <h3>How it fits</h3>
+                <p>
+                    The Customer Display receives and shows billing and payment state
+                    from QuickBill Desktop. It does not calculate or modify the bill.
+                    QuickBill Desktop remains fully functional if the display is
+                    disconnected.
+                </p>
+                <p>
+                    Connection uses WebSocket on port 8765. The tablet and desktop must
+                    be on the same local network.
+                </p>
+
+                <p>
+                    <a href="https://github.com/kartikbansode/quickbill-customer-display-app" target="_blank"
+                        rel="noopener noreferrer">
+                        View repository &rarr;
+                    </a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://github.com/kartikbansode/quickbill-customer-display-app/releases/download/v1.1.0/QuickBill-Customer-Display-v1.1.0.apk"
+                        target="_blank" rel="noopener noreferrer">
+                        Download APK v1.1.0
+                    </a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="documentation.html#customer-display">Documentation</a>
+                </p>
+            </section>
+
+
+            <!-- =====================================================
+           WHAT EACH APP DOES NOT DO
+      ====================================================== -->
+
+            <section id="boundaries" class="standard-section">
+                <h2>Responsibility Boundaries</h2>
+                <div class="role-grid">
+                    <div class="role-card">
+                        <h3>QuickBill Desktop</h3>
+                        <p>
+                            Authoritative billing and payment system. Manages products,
+                            cart, bills, transactions, invoices, and history.
+                        </p>
+                    </div>
+                    <div class="role-card">
+                        <h3>Barcode Scanner</h3>
+                        <p>
+                            Provides barcode scanning and related input. Not the main
+                            billing application. Does not own the bill.
+                        </p>
+                    </div>
+                    <div class="role-card">
+                        <h3>Customer Display</h3>
+                        <p>
+                            Displays billing and payment state to the customer. Not the
+                            authoritative billing system. Does not modify the bill.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- =====================================================
+           SUMMARY
+      ====================================================== -->
+
+            <section id="summary" class="standard-section">
+                <h2>Ecosystem Summary</h2>
+                <ul>
+                    <li>
+                        <strong>Core:</strong>
+                        QuickBill Desktop
+                        —
+                        <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+                            Repository
+                        </a>
+                    </li>
+                    <li>
+                        <strong>Input companion:</strong>
+                        QuickBill Barcode Scanner
+                        —
+                        <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app" target="_blank"
+                            rel="noopener noreferrer">
+                            Repository
+                        </a>
+                    </li>
+                    <li>
+                        <strong>Customer-facing companion:</strong>
+                        QuickBill Customer Display
+                        —
+                        <a href="https://github.com/kartikbansode/quickbill-customer-display-app" target="_blank"
+                            rel="noopener noreferrer">
+                            Repository
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    <a href="documentation.html">Documentation</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="downloads.html">Downloads</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="changelog.html">Changelog</a>
+                </p>
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <div>
+                <strong>QuickBill</strong>
+                <br>
+                <span>Professional Desktop Billing &amp; POS Management System</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="downloads.html">Downloads</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="changelog.html">Changelog</a>
+                <a href="https://github.com/kartikbansode/quickbill" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Kartik Bansode
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

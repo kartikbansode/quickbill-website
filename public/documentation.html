@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description"
+    content="QuickBill documentation — install, configure, and use QuickBill Desktop, Customer Display, and Barcode Scanner.">
+  <meta name="keywords"
+    content="QuickBill documentation, billing software help, POS documentation, UPI configuration, customer display">
+  <meta name="author" content="Kartik Bansode">
+
+  <title>QuickBill Documentation — Billing &amp; POS Software</title>
+
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <header class="site-header">
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+
+        <a class="brand" href="index.html" aria-label="QuickBill home">
+          <img class="brand-logo" src="assets/images/quickbill-logo.png" alt="QuickBill" width="42" height="42">
+          <span class="brand-name">QuickBill</span>
+        </a>
+
+        <div class="top-links">
+          <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a href="downloads.html" class="top-download">
+            Download
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Downloads</a>
+        <a class="active" href="documentation.html" aria-current="page">Documentation</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="ecosystem.html">Ecosystem</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN CONTENT
+  ========================================================== -->
+
+  <main class="page">
+
+    <div class="container docs-layout">
+
+      <!-- =====================================================
+           SIDEBAR
+      ====================================================== -->
+
+      <aside class="docs-sidebar" aria-label="Documentation navigation">
+        <strong>Documentation</strong>
+
+        <a href="#getting-started">Getting Started</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#installation">Installation</a>
+        <a href="#running-from-source">Running from Source</a>
+        <a href="#building">Building QuickBill</a>
+
+        <a href="#ecosystem">Ecosystem Overview</a>
+
+        <a href="#desktop">QuickBill Desktop</a>
+        <a href="#billing">Billing &amp; POS</a>
+        <a href="#products">Products &amp; Inventory</a>
+        <a href="#barcode-scanning">Barcode Scanning</a>
+        <a href="#payments">Payments</a>
+        <a href="#upi">UPI Configuration</a>
+        <a href="#invoices">Invoices</a>
+        <a href="#billing-history">Billing History</a>
+        <a href="#hold-resume">Hold &amp; Resume</a>
+
+        <a href="#customer-display">Customer Display</a>
+        <a href="#barcode-scanner-app">Barcode Scanner App</a>
+
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#faq">FAQ</a>
+        <a href="#reference">Reference</a>
+      </aside>
+
+
+      <!-- =====================================================
+           CONTENT
+      ====================================================== -->
+
+      <div class="docs-content">
+
+        <div class="page-title">
+          <p class="eyebrow">QUICKBILL DOCUMENTATION</p>
+          <h1>Documentation</h1>
+          <p>
+            Complete documentation for QuickBill Desktop and its companion
+            applications. This page covers installation, configuration,
+            billing workflows, payments, invoices, and troubleshooting.
+          </p>
+        </div>
+
+
+        <!-- =================================================
+             GETTING STARTED
+        ================================================== -->
+
+        <section id="getting-started" class="doc-section">
+          <h2>Getting Started</h2>
+          <p>
+            QuickBill is a professional desktop billing and point-of-sale
+            system designed for retail shops and small businesses. It provides
+            a complete billing workflow with barcode scanning, product and
+            inventory management, payments, invoice generation, billing
+            history, and optional customer-facing display synchronization.
+          </p>
+          <p>
+            The current stable release is <strong>QuickBill v3.0.0</strong>
+            (First Stable Release).
+          </p>
+          <p>
+            Start by reviewing the system requirements, then install either
+            a packaged release or run the application from source.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             REQUIREMENTS
+        ================================================== -->
+
+        <section id="requirements" class="doc-section">
+          <h2>Requirements</h2>
+
+          <h3>QuickBill Desktop</h3>
+          <ul>
+            <li>Windows 10 or Windows 11</li>
+            <li>Python 3.11 or newer (required only when running from source)</li>
+            <li>Required Python packages listed in <code>requirements.txt</code> (source installation)</li>
+          </ul>
+
+          <h3>Technology stack</h3>
+          <ul>
+            <li>Desktop application: Python</li>
+            <li>GUI framework: Tkinter</li>
+            <li>Invoice generation: PDF</li>
+            <li>Product and billing data: local application storage</li>
+            <li>Packaging: PyInstaller</li>
+            <li>Platform: Windows 10 / Windows 11</li>
+          </ul>
+
+          <h3>Companion applications</h3>
+          <ul>
+            <li>
+              <strong>QuickBill Customer Display:</strong>
+              Android tablet, Android 8.0 (API 26) or newer,
+              same local network as the desktop
+            </li>
+            <li>
+              <strong>QuickBill Barcode Scanner:</strong>
+              Android device with camera, Android 8.0 (API 26) or higher,
+              same local network as the desktop
+            </li>
+          </ul>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             INSTALLATION
+        ================================================== -->
+
+        <section id="installation" class="doc-section">
+          <h2>Installation</h2>
+
+          <h3>Packaged Windows release</h3>
+          <p>
+            Official release files are published on the
+            <a href="https://github.com/kartikbansode/quickbill/releases" target="_blank" rel="noopener noreferrer">
+              GitHub Releases
+            </a>
+            page. Where a Windows setup installer is published for a given
+            version, download and run the installer, then launch QuickBill
+            from the Start Menu or desktop shortcut.
+          </p>
+          <p>
+            Packaged installers do not require a separate Python installation
+            on the target machine.
+          </p>
+          <p>
+            See the
+            <a href="downloads.html">Downloads</a>
+            page for links to the current and previous releases.
+          </p>
+
+          <h3>First run</h3>
+          <p>
+            After launching QuickBill Desktop:
+          </p>
+          <ol>
+            <li>Open product management and add your products.</li>
+            <li>Configure UPI settings if you intend to use UPI payments (see <a href="#upi">UPI Configuration</a>).</li>
+            <li>Create your first bill from the billing screen.</li>
+            <li>Optionally connect the Customer Display and/or Barcode Scanner companion applications on the same local network.</li>
+          </ol>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             RUNNING FROM SOURCE
+        ================================================== -->
+
+        <section id="running-from-source" class="doc-section">
+          <h2>Running from Source</h2>
+          <p>
+            To run QuickBill Desktop from source on a development machine:
+          </p>
+          <pre class="code-block">git clone https://github.com/kartikbansode/quickbill.git
+cd quickbill
+pip install -r requirements.txt
+python app.py</pre>
+          <p>
+            Requires Python 3.11 or newer and the packages listed in
+            <code>requirements.txt</code>.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             BUILDING
+        ================================================== -->
+
+        <section id="building" class="doc-section">
+          <h2>Building QuickBill</h2>
+          <p>
+            To build a packaged executable with PyInstaller:
+          </p>
+          <pre class="code-block">pyinstaller QuickBill.spec</pre>
+          <p>
+            The executable will be generated inside the <code>dist</code> folder.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             ECOSYSTEM
+        ================================================== -->
+
+        <section id="ecosystem" class="doc-section">
+          <h2>Ecosystem Overview</h2>
+          <p>
+            QuickBill consists of a core desktop application and optional
+            companion applications:
+          </p>
+          <ul>
+            <li>
+              <strong>QuickBill Desktop</strong> —
+              the core Windows billing and POS application. It is the
+              authoritative source of billing data and manages products,
+              inventory, cart state, bills, transactions, payments, customer
+              information, and invoice generation.
+            </li>
+            <li>
+              <strong>QuickBill Customer Display</strong> —
+              companion Android application that provides a real-time
+              customer-facing display for bill items, totals, payment
+              information, UPI QR display, and payment success state.
+            </li>
+            <li>
+              <strong>QuickBill Barcode Scanner</strong> —
+              companion Android application that provides barcode-scanning
+              functionality for QuickBill Desktop.
+            </li>
+          </ul>
+          <p>
+            Companion applications connect to QuickBill Desktop. The desktop
+            remains fully functional if a companion application is disconnected.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             DESKTOP OVERVIEW
+        ================================================== -->
+
+        <section id="desktop" class="doc-section">
+          <h2>QuickBill Desktop</h2>
+          <p>
+            QuickBill Desktop is the central billing system. It handles
+            products, billing, payments, invoices, bill history, and
+            communication with the optional Android companion applications.
+          </p>
+          <p>
+            Core capabilities include:
+          </p>
+          <ul>
+            <li>Billing and point-of-sale workflow</li>
+            <li>Product and inventory management</li>
+            <li>Barcode scanning (USB, camera, companion app)</li>
+            <li>Multiple payment modes including dynamic UPI QR</li>
+            <li>Professional PDF invoice generation (A4 and 80 mm)</li>
+            <li>Bill history, search, and reprint</li>
+            <li>Hold and resume bills</li>
+            <li>Real-time customer display integration</li>
+          </ul>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             BILLING
+        ================================================== -->
+
+        <section id="billing" class="doc-section">
+          <h2>Billing &amp; POS</h2>
+          <p>
+            QuickBill provides a fast point-of-sale billing workflow.
+          </p>
+          <ul>
+            <li>Manual item entry</li>
+            <li>Barcode-based item entry</li>
+            <li>Automatic quantity handling</li>
+            <li>Item-level quantity controls</li>
+            <li>Item deletion</li>
+            <li>Automatic subtotal and total calculation</li>
+            <li>Tax and discount handling</li>
+            <li>Automatic bill numbering</li>
+            <li>Customer information capture</li>
+            <li>Bill confirmation workflow</li>
+            <li>Hold and resume bills</li>
+          </ul>
+          <p>
+            Create bills by adding products manually or by scanning barcodes.
+            Quantities, tax, discounts, and totals are calculated by the
+            desktop application.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             PRODUCTS
+        ================================================== -->
+
+        <section id="products" class="doc-section">
+          <h2>Products &amp; Inventory</h2>
+          <p>
+            Manage the product catalogue from QuickBill Desktop.
+          </p>
+          <ul>
+            <li>Add products</li>
+            <li>Edit products</li>
+            <li>Delete products</li>
+            <li>Search products</li>
+            <li>Barcode-based product identification</li>
+            <li>Product pricing</li>
+            <li>Inventory and stock management</li>
+          </ul>
+          <p>
+            Products can include barcode, name, and pricing information.
+            Inventory and stock information is maintained as part of product
+            management.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             BARCODE SCANNING
+        ================================================== -->
+
+        <section id="barcode-scanning" class="doc-section">
+          <h2>Barcode Scanning</h2>
+          <p>
+            QuickBill supports multiple barcode input methods:
+          </p>
+          <ul>
+            <li>USB barcode scanner support</li>
+            <li>IP / webcam-based scanning support</li>
+            <li>QuickBill Barcode Scanner companion application</li>
+            <li>Continuous scanning</li>
+            <li>Duplicate barcode handling</li>
+            <li>Automatic product lookup</li>
+            <li>Manual barcode entry</li>
+          </ul>
+          <p>
+            Scanned barcodes are looked up against the product catalogue
+            managed by QuickBill Desktop. Duplicate barcode handling is
+            supported to reduce accidental double-scans.
+          </p>
+          <p>
+            For the Android companion scanner, see
+            <a href="#barcode-scanner-app">Barcode Scanner App</a>.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             PAYMENTS
+        ================================================== -->
+
+        <section id="payments" class="doc-section">
+          <h2>Payments</h2>
+          <p>
+            Supported payment workflows include:
+          </p>
+          <ul>
+            <li>Cash</li>
+            <li>UPI</li>
+            <li>Card</li>
+            <li>Credit</li>
+          </ul>
+          <p>
+            Payment-related features include:
+          </p>
+          <ul>
+            <li>Dynamic UPI QR generation</li>
+            <li>Bill amount linked to payment QR</li>
+            <li>Payment confirmation workflow</li>
+            <li>Customer display payment state</li>
+            <li>Transaction completion handling</li>
+          </ul>
+          <p>
+            UPI requires configuration before use. See
+            <a href="#upi">UPI Configuration</a>.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             UPI
+        ================================================== -->
+
+        <section id="upi" class="doc-section">
+          <h2>UPI Configuration</h2>
+          <p>
+            QuickBill supports dynamic UPI QR payments. Before using UPI
+            payments, configure your UPI ID in the following two files.
+          </p>
+
+          <h3>1. Configure UPI ID</h3>
+          <p>
+            Open:
+          </p>
+          <pre class="code-block">logic/upi_payment.py</pre>
+          <p>
+            Find:
+          </p>
+          <pre class="code-block">DEFAULT_UPI_ID = "PUT-YOUR-UPI-ID-HERE"</pre>
+          <p>
+            Replace it with your own UPI ID. Example:
+          </p>
+          <pre class="code-block">DEFAULT_UPI_ID = "yourupi@bank"</pre>
+
+          <h3>2. Configure Payment Dialog</h3>
+          <p>
+            Open:
+          </p>
+          <pre class="code-block">gui/payment/payment_dialog.py</pre>
+          <p>
+            Find:
+          </p>
+          <pre class="code-block">self.upi_id = "PUT-YOUR-UPI-ID-HERE"</pre>
+          <p>
+            Replace it with the same UPI ID. Example:
+          </p>
+          <pre class="code-block">self.upi_id = "yourupi@bank"</pre>
+          <p>
+            Make sure the UPI ID is identical in both files.
+          </p>
+
+          <h3>Dynamic UPI QR</h3>
+          <p>
+            When UPI payment is selected, QuickBill generates a dynamic
+            payment QR containing:
+          </p>
+          <ul>
+            <li>UPI ID</li>
+            <li>Merchant name</li>
+            <li>Current bill amount</li>
+            <li>Bill number</li>
+            <li>Currency (INR)</li>
+          </ul>
+          <p>
+            The QR code is generated automatically for each bill and can be
+            displayed through the customer display system.
+          </p>
+
+          <h3>Important security notes</h3>
+          <ul>
+            <li>Use a valid UPI ID belonging to the business or merchant.</li>
+            <li>Use the same UPI ID in both configuration locations.</li>
+            <li>
+              Do not add your UPI PIN, password, bank credentials, or other
+              sensitive information to the source code.
+            </li>
+            <li>
+              Test the generated QR code with a small transaction before
+              using QuickBill for real billing.
+            </li>
+          </ul>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             INVOICES
+        ================================================== -->
+
+        <section id="invoices" class="doc-section">
+          <h2>Invoices</h2>
+          <p>
+            QuickBill generates professional PDF invoices with the following
+            capabilities:
+          </p>
+          <ul>
+            <li>Professional PDF invoices</li>
+            <li>A4 invoice format</li>
+            <li>80 mm receipt format</li>
+            <li>Printable billing documents</li>
+            <li>Bill reprinting</li>
+            <li>Automatic bill numbering</li>
+          </ul>
+          <p>
+            Invoices can be printed or reprinted from billing history when
+            required.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             BILLING HISTORY
+        ================================================== -->
+
+        <section id="billing-history" class="doc-section">
+          <h2>Billing History</h2>
+          <p>
+            Billing history supports:
+          </p>
+          <ul>
+            <li>View previous bills</li>
+            <li>Search billing records</li>
+            <li>Review transaction information</li>
+            <li>Reprint invoices</li>
+          </ul>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             HOLD & RESUME
+        ================================================== -->
+
+        <section id="hold-resume" class="doc-section">
+          <h2>Hold &amp; Resume</h2>
+          <p>
+            QuickBill supports temporarily holding an active billing session
+            and resuming it later without losing the current bill.
+          </p>
+          <p>
+            Use hold when you need to pause a sale (for example, to serve
+            another customer) and resume when you are ready to continue the
+            same bill.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             CUSTOMER DISPLAY
+        ================================================== -->
+
+        <section id="customer-display" class="doc-section">
+          <h2>Customer Display</h2>
+          <p>
+            QuickBill Customer Display is a companion Android application
+            that provides a real-time customer-facing display for the
+            QuickBill desktop billing system over a local network.
+          </p>
+
+          <h3>What it displays</h3>
+          <ul>
+            <li>Current bill items</li>
+            <li>Quantities, rates, and amounts</li>
+            <li>Subtotal, tax, discount, and total</li>
+            <li>Customer and cashier information</li>
+            <li>Payment information (Cash, UPI, Card, Credit)</li>
+            <li>UPI QR display</li>
+            <li>Payment pending and payment success screens</li>
+          </ul>
+
+          <h3>Architecture</h3>
+          <p>
+            QuickBill Desktop remains the authoritative source of billing
+            and payment state. The Customer Display receives and shows
+            desktop state and events; it does not calculate or modify the
+            bill.
+          </p>
+          <p>
+            The desktop application continues to operate normally if the
+            customer display is disconnected.
+          </p>
+
+          <h3>Connection</h3>
+          <p>
+            The customer display connects to QuickBill Desktop using:
+          </p>
+          <pre class="code-block">WebSocket
+Port: 8765</pre>
+          <p>
+            The Android tablet and the Windows computer must be on the same
+            local network.
+          </p>
+
+          <h3>Requirements</h3>
+          <ul>
+            <li>Android tablet</li>
+            <li>Android 8.0 (API 26) or newer</li>
+            <li>QuickBill Desktop</li>
+            <li>Tablet and desktop on the same local network</li>
+          </ul>
+
+          <h3>Reliability features</h3>
+          <ul>
+            <li>Real-time bill synchronization</li>
+            <li>Automatic reconnection</li>
+            <li>Graceful disconnected state</li>
+            <li>Full-screen tablet interface</li>
+          </ul>
+
+          <h3>Download</h3>
+          <p>
+            <a href="https://github.com/kartikbansode/quickbill-customer-display-app/releases/download/v1.1.0/QuickBill-Customer-Display-v1.1.0.apk"
+              target="_blank" rel="noopener noreferrer">
+              Download Android App v1.1.0
+            </a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://github.com/kartikbansode/quickbill-customer-display-app" target="_blank" rel="noopener noreferrer">
+              Repository
+            </a>
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             BARCODE SCANNER APP
+        ================================================== -->
+
+        <section id="barcode-scanner-app" class="doc-section">
+          <h2>Barcode Scanner App</h2>
+          <p>
+            QuickBill Barcode Scanner is a companion Android application
+            designed to work with QuickBill Desktop. It provides a dedicated
+            mobile barcode-scanning interface for scanning products and
+            sending barcode information to the desktop application for use
+            in billing and product workflows.
+          </p>
+
+          <h3>Features</h3>
+          <ul>
+            <li>Android camera barcode scanner</li>
+            <li>Real-time barcode detection</li>
+            <li>Network camera streaming</li>
+            <li>QuickBill Desktop integration</li>
+            <li>Automatic IP address configuration</li>
+            <li>Continuous scanning</li>
+            <li>Duplicate scan prevention</li>
+            <li>Camera selection</li>
+            <li>Scanner settings and customization</li>
+          </ul>
+
+          <h3>Requirements</h3>
+          <ul>
+            <li>Android 8.0 (API 26) or higher</li>
+            <li>Android device with camera</li>
+            <li>QuickBill Desktop</li>
+            <li>Android device and desktop connected to the same network</li>
+          </ul>
+
+          <h3>Setup</h3>
+          <p>
+            Download and install the latest APK on your Android device.
+            Open the app and configure the scanner settings. The displayed
+            device/network address can be configured in QuickBill Desktop
+            under Scanner Settings.
+          </p>
+          <p>
+            The Android device acts as a wireless barcode scanner for the
+            desktop billing application.
+          </p>
+
+          <h3>Download</h3>
+          <p>
+            <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app/releases/download/v1.0.0/QuickBill-Barcode-Scanner-v1.0.0.apk"
+              target="_blank" rel="noopener noreferrer">
+              Download Android App v1.0.0
+            </a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app" target="_blank" rel="noopener noreferrer">
+              Repository
+            </a>
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             TROUBLESHOOTING
+        ================================================== -->
+
+        <section id="troubleshooting" class="doc-section">
+          <h2>Troubleshooting</h2>
+
+          <h3>Scanner is not connecting</h3>
+          <p>
+            Confirm that the Android device and the Windows computer are on
+            the same local network. Verify the phone IP address shown in the
+            scanner application and check that the scanner application is
+            running. Configure the displayed network address in QuickBill
+            Desktop under Scanner Settings.
+          </p>
+
+          <h3>Customer Display is disconnected</h3>
+          <p>
+            Confirm that the Android tablet can reach the Windows computer
+            over the local network and that QuickBill Desktop is running.
+            The Customer Display connects using WebSocket on port 8765.
+            The desktop remains fully functional if the display is
+            disconnected; reconnection is automatic when the network path
+            is restored.
+          </p>
+
+          <h3>UPI QR not generating or incorrect amount</h3>
+          <p>
+            Confirm that the same valid merchant UPI ID is configured in
+            both <code>logic/upi_payment.py</code> and
+            <code>gui/payment/payment_dialog.py</code>. Do not place UPI
+            PIN, password, or bank credentials in the source code. Test
+            with a small transaction before live use.
+          </p>
+
+          <h3>Running from source fails</h3>
+          <p>
+            Ensure Python 3.11 or newer is installed and that dependencies
+            from <code>requirements.txt</code> have been installed with
+            <code>pip install -r requirements.txt</code>. Run the application
+            with <code>python app.py</code> from the project directory.
+          </p>
+
+          <h3>Need more help?</h3>
+          <p>
+            Use the
+            <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+              QuickBill GitHub repository
+            </a>
+            for source-level issues and project discussions. Review the
+            <a href="changelog.html">Changelog</a>
+            for version-specific changes.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             FAQ
+        ================================================== -->
+
+        <section id="faq" class="doc-section">
+          <h2>FAQ</h2>
+
+          <h3>What operating systems are supported?</h3>
+          <p>QuickBill Desktop supports Windows 10 and Windows 11.</p>
+
+          <h3>What Python version is required?</h3>
+          <p>
+            Python 3.11 or newer is required when running from source.
+            Packaged Windows installers do not require a separate Python
+            installation.
+          </p>
+
+          <h3>What payment methods are supported?</h3>
+          <p>Cash, UPI, Card, and Credit.</p>
+
+          <h3>What invoice formats are supported?</h3>
+          <p>A4 and 80 mm PDF invoices.</p>
+
+          <h3>What is the Customer Display?</h3>
+          <p>
+            An optional Android companion application that shows real-time
+            bill items, totals, payment information, and UPI QR on a
+            customer-facing screen. QuickBill Desktop remains the
+            authoritative billing system.
+          </p>
+
+          <h3>What is the Barcode Scanner app?</h3>
+          <p>
+            An optional Android companion application that acts as a wireless
+            barcode scanner for QuickBill Desktop, using the device camera
+            and local network.
+          </p>
+
+          <h3>How is UPI configured?</h3>
+          <p>
+            Set the same merchant UPI ID in
+            <code>logic/upi_payment.py</code> and
+            <code>gui/payment/payment_dialog.py</code>. See
+            <a href="#upi">UPI Configuration</a>.
+          </p>
+
+          <h3>Where is the source repository?</h3>
+          <p>
+            <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+              https://github.com/kartikbansode/quickbill
+            </a>
+          </p>
+
+          <h3>Is the Customer Display required?</h3>
+          <p>
+            No. It is optional. QuickBill Desktop continues to operate when
+            the display is disconnected.
+          </p>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+
+        <!-- =================================================
+             REFERENCE
+        ================================================== -->
+
+        <section id="reference" class="doc-section">
+          <h2>Reference</h2>
+          <ul>
+            <li>
+              <a href="downloads.html">Downloads</a>
+            </li>
+            <li>
+              <a href="changelog.html">Changelog</a>
+            </li>
+            <li>
+              <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
+                QuickBill Desktop repository
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kartikbansode/quickbill/releases" target="_blank" rel="noopener noreferrer">
+                QuickBill Desktop releases
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kartikbansode/quickbill-customer-display-app" target="_blank" rel="noopener noreferrer">
+                Customer Display repository
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kartikbansode/quickbill-barcode-scanner-app" target="_blank" rel="noopener noreferrer">
+                Barcode Scanner repository
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kartikbansode/quickbill/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+                License
+              </a>
+            </li>
+          </ul>
+          <p><a href="#top" class="back-top">Back to top</a></p>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div>
+        <strong>QuickBill</strong>
+        <br>
+        <span>Professional Desktop Billing &amp; POS Management System</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="downloads.html">Downloads</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 Kartik Bansode
+      </div>
+
+    </div>
+
+  </footer>
