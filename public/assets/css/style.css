@@ -2105,7 +2105,7 @@ a:hover {
   }
 }
 /* =========================================================
-   PRODUCT SHOWCASE (below hero)
+   PRODUCT SHOWCASE
 ========================================================= */
 
 .showcase-section {
@@ -2115,11 +2115,58 @@ a:hover {
 }
 
 .showcase-frame {
-  background: #fff;
+  position: relative;
+  background: #f0f4f7;
   border: 1px solid #c7d3db;
   border-top: 3px solid #72a7ca;
   padding: 12px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* =========================================================
+   CUSTOM ROTATING IMAGE LOADER
+========================================================= */
+
+.showcase-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.showcase-loader-image {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+
+  animation: quickbill-loader-spin 1.2s linear infinite;
+}
+
+@keyframes quickbill-loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   SHOWCASE IMAGE
+========================================================= */
 
 .showcase-image {
   display: block;
@@ -2127,26 +2174,60 @@ a:hover {
   height: auto;
   max-width: 100%;
   object-fit: contain;
+
   background: #f0f4f7;
   border: 1px solid #dce4ea;
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
+/* Image loaded */
+
+.showcase-frame.image-loaded .showcase-image {
+  opacity: 1;
+}
+
+.showcase-frame.image-loaded .showcase-loader {
+  display: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media (max-width: 800px) {
+
   .showcase-section {
     padding: 28px 0 36px;
   }
 
   .showcase-frame {
     padding: 10px;
+    min-height: 240px;
   }
+
+  .showcase-loader-image {
+    width: 42px;
+    height: 42px;
+  }
+
 }
 
 @media (max-width: 560px) {
+
   .showcase-section {
     padding: 22px 0 28px;
   }
 
   .showcase-frame {
     padding: 8px;
+    min-height: 180px;
   }
+
+  .showcase-loader-image {
+    width: 36px;
+    height: 36px;
+  }
+
 }
