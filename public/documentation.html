@@ -7,8 +7,7 @@
 
   <meta name="description"
     content="QuickBill documentation — install, configure, and use QuickBill Desktop, Customer Display, and Barcode Scanner.">
-  <meta name="keywords"
-    content="QuickBill documentation, billing software help, POS documentation, UPI configuration, customer display">
+  <meta name="keywords" content="QuickBill documentation, billing software help, POS documentation, customer display">
   <meta name="author" content="Kartik Bansode">
 
   <title>QuickBill Documentation — Billing &amp; POS Software</title>
@@ -113,7 +112,6 @@
         <a href="#products">Products &amp; Inventory</a>
         <a href="#barcode-scanning">Barcode Scanning</a>
         <a href="#payments">Payments</a>
-        <a href="#upi">UPI Configuration</a>
         <a href="#invoices">Invoices</a>
         <a href="#billing-history">Billing History</a>
         <a href="#hold-resume">Hold &amp; Resume</a>
@@ -243,7 +241,6 @@
           </p>
           <ol>
             <li>Open product management and add your products.</li>
-            <li>Configure UPI settings if you intend to use UPI payments (see <a href="#upi">UPI Configuration</a>).
             </li>
             <li>Create your first bill from the billing screen.</li>
             <li>Optionally connect the Customer Display and/or Barcode Scanner companion applications on the same local
@@ -472,8 +469,10 @@ python app.py</pre>
             <li>Transaction completion handling</li>
           </ul>
           <p>
-            UPI requires configuration before use. See
-            <a href="#upi">UPI Configuration</a>.
+            Set your UPI ID in QuickBill Desktop settings to enable UPI payments. The generated QR code will include the
+            bill amount and can be scanned by the customer to complete payment. <br>
+            <strong>Note:</strong> You cannot use the UPI method for billing unless you have a valid UPI ID configured
+            in the application settings.
           </p>
           <p><a href="#top" class="back-top">Back to top</a></p>
         </section>
