@@ -478,83 +478,6 @@ python app.py</pre>
           <p><a href="#top" class="back-top">Back to top</a></p>
         </section>
 
-
-        <!-- =================================================
-             UPI
-        ================================================== -->
-
-        <section id="upi" class="doc-section">
-          <h2>UPI Configuration</h2>
-          <p>
-            QuickBill supports dynamic UPI QR payments. Before using UPI
-            payments, configure your UPI ID in the following two files.
-          </p>
-
-          <h3>1. Configure UPI ID</h3>
-          <p>
-            Open:
-          </p>
-          <pre class="code-block">logic/upi_payment.py</pre>
-          <p>
-            Find:
-          </p>
-          <pre class="code-block">DEFAULT_UPI_ID = "PUT-YOUR-UPI-ID-HERE"</pre>
-          <p>
-            Replace it with your own UPI ID. Example:
-          </p>
-          <pre class="code-block">DEFAULT_UPI_ID = "yourupi@bank"</pre>
-
-          <h3>2. Configure Payment Dialog</h3>
-          <p>
-            Open:
-          </p>
-          <pre class="code-block">gui/payment/payment_dialog.py</pre>
-          <p>
-            Find:
-          </p>
-          <pre class="code-block">self.upi_id = "PUT-YOUR-UPI-ID-HERE"</pre>
-          <p>
-            Replace it with the same UPI ID. Example:
-          </p>
-          <pre class="code-block">self.upi_id = "yourupi@bank"</pre>
-          <p>
-            Make sure the UPI ID is identical in both files.
-          </p>
-
-          <h3>Dynamic UPI QR</h3>
-          <p>
-            When UPI payment is selected, QuickBill generates a dynamic
-            payment QR containing:
-          </p>
-          <ul>
-            <li>UPI ID</li>
-            <li>Merchant name</li>
-            <li>Current bill amount</li>
-            <li>Bill number</li>
-            <li>Currency (INR)</li>
-          </ul>
-          <p>
-            The QR code is generated automatically for each bill and can be
-            displayed through the customer display system.
-          </p>
-
-          <h3>Important security notes</h3>
-          <ul>
-            <li>Use a valid UPI ID belonging to the business or merchant.</li>
-            <li>Use the same UPI ID in both configuration locations.</li>
-            <li>
-              Do not add your UPI PIN, password, bank credentials, or other
-              sensitive information to the source code.
-            </li>
-            <li>
-              Test the generated QR code with a small transaction before
-              using QuickBill for real billing.
-            </li>
-          </ul>
-          <p><a href="#top" class="back-top">Back to top</a></p>
-        </section>
-
-
         <!-- =================================================
              INVOICES
         ================================================== -->
@@ -786,15 +709,6 @@ Port: 8765</pre>
             is restored.
           </p>
 
-          <h3>UPI QR not generating or incorrect amount</h3>
-          <p>
-            Confirm that the same valid merchant UPI ID is configured in
-            both <code>logic/upi_payment.py</code> and
-            <code>gui/payment/payment_dialog.py</code>. Do not place UPI
-            PIN, password, or bank credentials in the source code. Test
-            with a small transaction before live use.
-          </p>
-
           <h3>Running from source fails</h3>
           <p>
             Ensure Python 3.11 or newer is installed and that dependencies
@@ -853,14 +767,6 @@ Port: 8765</pre>
             An optional Android companion application that acts as a wireless
             barcode scanner for QuickBill Desktop, using the device camera
             and local network.
-          </p>
-
-          <h3>How is UPI configured?</h3>
-          <p>
-            Set the same merchant UPI ID in
-            <code>logic/upi_payment.py</code> and
-            <code>gui/payment/payment_dialog.py</code>. See
-            <a href="#upi">UPI Configuration</a>.
           </p>
 
           <h3>Where is the source repository?</h3>
