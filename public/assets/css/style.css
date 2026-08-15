@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -140,7 +141,15 @@ a:hover {
   text-decoration: none;
 }
 
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
 .main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   background: #24516f;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 }
@@ -2168,4 +2177,66 @@ a:hover {
   .footer-links a {
     font-size: 12px;
   }
+}
+
+
+
+/* =========================================================
+   CHANGELOG — compact / expandable entries
+========================================================= */
+
+.changelog-compact {
+  padding: 18px 22px;
+}
+
+.changelog-compact .change-header {
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+}
+
+.changelog-compact .change-overview {
+  margin: 0 0 12px;
+}
+
+.changelog-more {
+  margin: 0;
+  border: 0;
+}
+
+.changelog-more > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #21689b;
+  padding: 4px 0;
+  user-select: none;
+}
+
+.changelog-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.changelog-more > summary::before {
+  content: "▸ ";
+  color: #668ca4;
+}
+
+.changelog-more[open] > summary::before {
+  content: "▾ ";
+}
+
+.changelog-more > summary:hover {
+  text-decoration: underline;
+}
+
+.changelog-more-body {
+  margin-top: 14px;
+  padding-top: 4px;
+  border-top: 1px solid #edf0f2;
+}
+
+.changelog-more-body .change-block:first-child {
+  margin-top: 8px;
 }

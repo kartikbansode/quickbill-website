@@ -18,10 +18,6 @@
 
 <body>
 
-  <!-- =========================================================
-       HEADER
-  ========================================================== -->
-
   <header class="site-header">
 
     <div class="topbar">
@@ -35,30 +31,27 @@
           <a href="https://github.com/kartikbansode/quickbill" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+
           <a href="downloads.html" class="top-download">
             Download
           </a>
         </div>
 
       </div>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <div class="container nav-inner">
-          <a href="index.html">Home</a>
-          <a href="downloads.html">Downloads</a>
-          <a href="documentation.html">Documentation</a>
-          <a class="active" href="changelog.html" aria-current="page">Changelog</a>
-          <a href="ecosystem.html">Ecosystem</a>
-          <a href="about.html">About</a>
-        </div>
-      </nav>
+    </div>
 
   </header>
 
-
-  <!-- =========================================================
-       MAIN CONTENT
-  ========================================================== -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html">Home</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="documentation.html">Documentation</a>
+      <a class="active" href="changelog.html" aria-current="page">Changelog</a>
+      <a href="ecosystem.html">Ecosystem</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
 
   <main class="page">
 
@@ -69,21 +62,21 @@
         <h1>Changelog</h1>
         <p>
           Release history and development changes across QuickBill versions.
-          The current stable release is <strong>QuickBill v3.0.0</strong>.
+          The current stable release is <strong>QuickBill v3.1.0</strong>.
         </p>
       </div>
 
-
-      <!-- =====================================================
-           RELEASE INDEX
-      ====================================================== -->
 
       <nav class="release-index" aria-label="Release history index">
         <h2 class="release-index-title">Release History</h2>
         <ul class="release-index-list">
           <li>
+            <a href="#v3-1-0"><strong>v3.1.0</strong></a>
+            <span>— Current Stable · 14 August 2026</span>
+          </li>
+          <li>
             <a href="#v3-0-0"><strong>v3.0.0</strong></a>
-            <span>— First Stable Release · 13 August 2026</span>
+            <span>— 13 August 2026</span>
           </li>
           <li>
             <a href="#v2-2-0"><strong>v2.2.0</strong></a>
@@ -110,150 +103,247 @@
 
 
       <!-- =====================================================
+     v3.1.0 — CURRENT STABLE
+====================================================== -->
+
+      <section class="changelog-entry" id="v3-1-0">
+
+        <div class="change-header">
+          <div>
+            <h2>QuickBill v3.1.0</h2>
+            <p>14 August 2026 &middot; Current Stable</p>
+          </div>
+          <span class="status-badge">CURRENT STABLE</span>
+        </div>
+
+        <p class="change-overview">
+          Version 3.1.0 is a focused configuration, personalization,
+          stability, and production-readiness update for QuickBill.
+          This release adds application-level business and payment
+          configuration while improving deployment consistency and
+          fixing several production-related issues.
+        </p>
+
+        <div class="change-block">
+          <h3>New Application Settings</h3>
+          <ul>
+            <li>Added UPI ID configuration directly inside Settings</li>
+            <li>UPI ID can now be changed without editing source code</li>
+            <li>Added Cashier Name setting</li>
+            <li>Added Company / Business Name setting</li>
+            <li>Added Owner Name setting</li>
+            <li>Added Business Address setting</li>
+            <li>Added Business Phone setting</li>
+            <li>Added Business Email setting</li>
+            <li>Added GST Number setting</li>
+            <li>Settings are stored locally on the user's computer</li>
+            <li>Configured values persist after application restart</li>
+          </ul>
+        </div>
+
+        <div class="change-block">
+          <h3>Invoice Personalization</h3>
+          <ul>
+            <li>Configured business information is now used automatically in generated invoices</li>
+            <li>Cashier information can be reflected in invoices</li>
+            <li>Business identity information can be reflected in invoices</li>
+            <li>Updated 80 mm invoice information handling</li>
+            <li>Updated A4 invoice information handling</li>
+            <li>Added sensible QuickBill defaults when optional business fields are left empty</li>
+          </ul>
+        </div>
+
+        <div class="change-block">
+          <h3>UPI Configuration Improvements</h3>
+          <ul>
+            <li>Removed the need to modify the UPI ID directly in application source code</li>
+            <li>UPI configuration is now managed through the application Settings</li>
+            <li>Configured UPI ID persists between application sessions</li>
+            <li>Improved handling of user-specific UPI configuration</li>
+          </ul>
+        </div>
+
+        <div class="change-block">
+          <h3>Bug Fixes &amp; Stability</h3>
+          <ul>
+            <li>Fixed application startup and splash-screen initialization issues</li>
+            <li>Improved startup sequencing to prevent the main window and splash screen from launching incorrectly</li>
+            <li>Improved handling of customer display initialization failures</li>
+            <li>Improved compatibility handling for customer display WebSocket dependencies</li>
+            <li>Improved local configuration persistence</li>
+            <li>Fixed production build configuration issues</li>
+            <li>Removed developer-specific dependency paths from the production build configuration</li>
+            <li>Improved application behavior across different Windows computers</li>
+          </ul>
+        </div>
+
+        <div class="change-block">
+          <h3>Production &amp; Release Updates</h3>
+          <ul>
+            <li>Updated application version metadata to v3.1.0</li>
+            <li>Updated executable version information to v3.1.0</li>
+            <li>Updated installer metadata to v3.1.0</li>
+            <li>Updated PyInstaller production configuration</li>
+            <li>Updated installer configuration for the v3.1.0 release</li>
+            <li>Updated project copyright and ownership information</li>
+            <li>Removed remaining Essenc Technologies branding from the production release</li>
+            <li>Updated project documentation and release information</li>
+          </ul>
+        </div>
+
+        <div class="change-block">
+          <h3>Release Status</h3>
+          <p>
+            QuickBill v3.1.0 is the current stable release and includes
+            the latest configuration improvements, personalization
+            features, production fixes, and release packaging updates.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- =====================================================
            v3.0.0
       ====================================================== -->
 
-      <section class="changelog-entry" id="v3-0-0">
+      <section class="changelog-entry changelog-compact" id="v3-0-0">
 
         <div class="change-header">
           <div>
             <h2>QuickBill v3.0.0</h2>
             <p>13 August 2026 &middot; First Stable Release</p>
           </div>
-          <span class="status-badge">CURRENT STABLE</span>
         </div>
 
         <p class="change-overview">
-          QuickBill v3.0.0 marks the first stable release of the QuickBill
-          desktop application. This release consolidates the core billing,
-          product management, invoice, payment, customer display, and POS
-          functionality into a stable desktop application with a consistent
-          professional interface and production-focused architecture.
+          First stable release of the QuickBill desktop application.
+          Consolidated core billing, product management, invoice, payment,
+          customer display, and POS functionality into a production-focused
+          desktop application.
         </p>
 
-        <div class="change-block">
-          <h3>Release Highlights</h3>
-          <ul>
-            <li>Stable QuickBill Pro desktop billing application</li>
-            <li>Professional POS-oriented billing interface</li>
-            <li>Improved application startup and splash screen workflow</li>
-            <li>Consistent application-wide UI components and styling</li>
-            <li>Barcode scanning and manual item entry</li>
-            <li>Product and inventory management</li>
-            <li>Professional invoice generation</li>
-            <li>Bill history and reprinting</li>
-            <li>Hold and resume billing workflow</li>
-            <li>Multiple payment modes</li>
-            <li>Dynamic UPI QR payment support</li>
-            <li>Real-time customer display integration</li>
-            <li>Improved customer display synchronization and reconnect handling</li>
-            <li>Improved error handling and application stability</li>
-            <li>Responsive desktop UI for different screen sizes</li>
-            <li>Updated release documentation and project structure</li>
-            <li>Versioned as the first stable v3.0.0 release</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
 
-        <div class="change-block">
-          <h3>Billing &amp; POS</h3>
-          <ul>
-            <li>Fast point-of-sale billing workflow</li>
-            <li>Manual item entry and barcode-based item entry</li>
-            <li>Automatic quantity handling and item-level quantity controls</li>
-            <li>Item deletion</li>
-            <li>Automatic subtotal and total calculation</li>
-            <li>Tax and discount handling</li>
-            <li>Automatic bill numbering</li>
-            <li>Customer information capture</li>
-            <li>Bill confirmation workflow</li>
-            <li>Hold and resume bills</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Release Highlights</h3>
+              <ul>
+                <li>Stable QuickBill Pro desktop billing application</li>
+                <li>Professional POS-oriented billing interface</li>
+                <li>Improved application startup and splash screen workflow</li>
+                <li>Consistent application-wide UI components and styling</li>
+                <li>Barcode scanning and manual item entry</li>
+                <li>Product and inventory management</li>
+                <li>Professional invoice generation</li>
+                <li>Bill history and reprinting</li>
+                <li>Hold and resume billing workflow</li>
+                <li>Multiple payment modes</li>
+                <li>Dynamic UPI QR payment support</li>
+                <li>Real-time customer display integration</li>
+                <li>Improved customer display synchronization and reconnect handling</li>
+                <li>Improved error handling and application stability</li>
+                <li>Responsive desktop UI for different screen sizes</li>
+                <li>Updated release documentation and project structure</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Product Management</h3>
-          <ul>
-            <li>Add, edit, delete, and search products</li>
-            <li>Barcode-based product identification</li>
-            <li>Product pricing</li>
-            <li>Inventory and stock management</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Billing &amp; POS</h3>
+              <ul>
+                <li>Fast point-of-sale billing workflow</li>
+                <li>Manual item entry and barcode-based item entry</li>
+                <li>Automatic quantity handling and item-level quantity controls</li>
+                <li>Item deletion</li>
+                <li>Automatic subtotal and total calculation</li>
+                <li>Tax and discount handling</li>
+                <li>Automatic bill numbering</li>
+                <li>Customer information capture</li>
+                <li>Bill confirmation workflow</li>
+                <li>Hold and resume bills</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Barcode Scanning</h3>
-          <ul>
-            <li>USB barcode scanner support</li>
-            <li>IP / webcam-based scanning support</li>
-            <li>Continuous scanning</li>
-            <li>Duplicate barcode handling</li>
-            <li>Automatic product lookup</li>
-            <li>Manual barcode entry</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Product Management</h3>
+              <ul>
+                <li>Add, edit, delete, and search products</li>
+                <li>Barcode-based product identification</li>
+                <li>Product pricing</li>
+                <li>Inventory and stock management</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Payments</h3>
-          <ul>
-            <li>Cash, UPI, Card, and Credit payment workflows</li>
-            <li>Dynamic UPI QR generation linked to the current bill amount</li>
-            <li>Payment confirmation workflow</li>
-            <li>Customer display payment state</li>
-            <li>Transaction completion handling</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Barcode Scanning</h3>
+              <ul>
+                <li>USB barcode scanner support</li>
+                <li>IP / webcam-based scanning support</li>
+                <li>Continuous scanning</li>
+                <li>Duplicate barcode handling</li>
+                <li>Automatic product lookup</li>
+                <li>Manual barcode entry</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Invoice Generation</h3>
-          <ul>
-            <li>Professional PDF invoices</li>
-            <li>A4 invoice format</li>
-            <li>80 mm receipt format</li>
-            <li>Printable billing documents</li>
-            <li>Bill reprinting</li>
-            <li>Automatic bill numbering</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Payments</h3>
+              <ul>
+                <li>Cash, UPI, Card, and Credit payment workflows</li>
+                <li>Dynamic UPI QR generation linked to the current bill amount</li>
+                <li>Payment confirmation workflow</li>
+                <li>Customer display payment state</li>
+                <li>Transaction completion handling</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Billing History</h3>
-          <ul>
-            <li>View previous bills</li>
-            <li>Search billing records</li>
-            <li>Review transaction information</li>
-            <li>Reprint invoices</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Invoice Generation</h3>
+              <ul>
+                <li>Professional PDF invoices</li>
+                <li>A4 invoice format</li>
+                <li>80 mm receipt format</li>
+                <li>Printable billing documents</li>
+                <li>Bill reprinting</li>
+                <li>Automatic bill numbering</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Customer Display</h3>
-          <ul>
-            <li>Real-time bill synchronization</li>
-            <li>Customer-facing item display</li>
-            <li>Live totals</li>
-            <li>Payment QR display</li>
-            <li>Payment status and success screen</li>
-            <li>Automatic reconnection</li>
-            <li>Graceful disconnected state</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Billing History</h3>
+              <ul>
+                <li>View previous bills</li>
+                <li>Search billing records</li>
+                <li>Review transaction information</li>
+                <li>Reprint invoices</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Stability &amp; UI</h3>
-          <ul>
-            <li>Improved application startup and splash screen workflow</li>
-            <li>Consistent application-wide UI components and styling</li>
-            <li>Improved error handling and application stability</li>
-            <li>Responsive desktop UI for different screen sizes</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Customer Display</h3>
+              <ul>
+                <li>Real-time bill synchronization</li>
+                <li>Customer-facing item display</li>
+                <li>Live totals</li>
+                <li>Payment QR display</li>
+                <li>Payment status and success screen</li>
+                <li>Automatic reconnection</li>
+                <li>Graceful disconnected state</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Documentation</h3>
-          <ul>
-            <li>Updated release documentation and project structure</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Stability &amp; UI</h3>
+              <ul>
+                <li>Improved application startup and splash screen workflow</li>
+                <li>Consistent application-wide UI components and styling</li>
+                <li>Improved error handling and application stability</li>
+                <li>Responsive desktop UI for different screen sizes</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -262,7 +352,7 @@
            v2.2.0
       ====================================================== -->
 
-      <section class="changelog-entry" id="v2-2-0">
+      <section class="changelog-entry changelog-compact" id="v2-2-0">
 
         <div class="change-header">
           <div>
@@ -272,38 +362,44 @@
         </div>
 
         <p class="change-overview">
-          QuickBill v2.2.0 focused on payment workflow improvements,
-          dynamic UPI QR support, and more reliable customer display
-          synchronization.
+          Payment workflow improvements, dynamic UPI QR support, and more
+          reliable customer display synchronization.
         </p>
 
-        <div class="change-block">
-          <h3>Added</h3>
-          <ul>
-            <li>Dynamic UPI QR support for faster payment collection</li>
-            <li>Automatic reconnect and more stable display connection handling</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
 
-        <div class="change-block">
-          <h3>Improved</h3>
-          <ul>
-            <li>Refined and more professional payment dialog</li>
-            <li>Customer display synchronization with desktop billing</li>
-            <li>Handling for cash, UPI, card, and credit payment modes</li>
-            <li>Success screen behavior after completed transactions</li>
-            <li>General UI and stability</li>
-            <li>Versioning, installer metadata, and release packaging</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Added</h3>
+              <ul>
+                <li>Dynamic UPI QR support for faster payment collection</li>
+                <li>Automatic reconnect and more stable display connection handling</li>
+              </ul>
+            </div>
 
-        <div class="change-block">
-          <h3>Fixed</h3>
-          <ul>
-            <li>Payment workflow bugs</li>
-            <li>Transaction locking improvements</li>
-          </ul>
-        </div>
+            <div class="change-block">
+              <h3>Improved</h3>
+              <ul>
+                <li>Refined and more professional payment dialog</li>
+                <li>Customer display synchronization with desktop billing</li>
+                <li>Handling for cash, UPI, card, and credit payment modes</li>
+                <li>Success screen behavior after completed transactions</li>
+                <li>General UI and stability</li>
+                <li>Versioning, installer metadata, and release packaging</li>
+              </ul>
+            </div>
+
+            <div class="change-block">
+              <h3>Fixed</h3>
+              <ul>
+                <li>Payment workflow bugs</li>
+                <li>Transaction locking improvements</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -312,7 +408,7 @@
            v2.1.1
       ====================================================== -->
 
-      <section class="changelog-entry" id="v2-1-1">
+      <section class="changelog-entry changelog-compact" id="v2-1-1">
 
         <div class="change-header">
           <div>
@@ -322,29 +418,35 @@
         </div>
 
         <p class="change-overview">
-          Maintenance release in the 2.1 series. Detailed change notes for
-          this version were not published separately in the release
-          documentation. The application at this point included the core
-          desktop billing feature set listed below.
+          Maintenance release in the 2.1 series. Detailed change notes were
+          not published separately; core desktop billing feature set as
+          documented for this series.
         </p>
 
-        <div class="change-block">
-          <h3>Features in this release</h3>
-          <ul>
-            <li>Product management: add, edit, delete, search</li>
-            <li>Barcode scanner support with USB / IP camera</li>
-            <li>Fast billing workflow</li>
-            <li>Professional PDF invoice generation</li>
-            <li>Barcode label PDF generation</li>
-            <li>Hold and resume bills</li>
-            <li>Bill history, search, and reprint</li>
-            <li>Automatic bill number generation</li>
-            <li>Inventory and stock management</li>
-            <li>Settings for app and billing configuration</li>
-            <li>Portable JSON-based local database</li>
-            <li>Windows installer and uninstaller</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
+
+            <div class="change-block">
+              <h3>Features in this release</h3>
+              <ul>
+                <li>Product management: add, edit, delete, search</li>
+                <li>Barcode scanner support with USB / IP camera</li>
+                <li>Fast billing workflow</li>
+                <li>Professional PDF invoice generation</li>
+                <li>Barcode label PDF generation</li>
+                <li>Hold and resume bills</li>
+                <li>Bill history, search, and reprint</li>
+                <li>Automatic bill number generation</li>
+                <li>Inventory and stock management</li>
+                <li>Settings for app and billing configuration</li>
+                <li>Portable JSON-based local database</li>
+                <li>Windows installer and uninstaller</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -353,7 +455,7 @@
            v2.1.0
       ====================================================== -->
 
-      <section class="changelog-entry" id="v2-1-0">
+      <section class="changelog-entry changelog-compact" id="v2-1-0">
 
         <div class="change-header">
           <div>
@@ -363,29 +465,35 @@
         </div>
 
         <p class="change-overview">
-          QuickBill v2.1.0 continued development of the desktop billing and
-          inventory management application. Detailed per-item change notes
-          for this version were not published separately in the release
-          documentation. The feature set at this point is listed below.
+          Continued development of the desktop billing and inventory
+          management application. Detailed per-item change notes were not
+          published separately for this version.
         </p>
 
-        <div class="change-block">
-          <h3>Features in this release</h3>
-          <ul>
-            <li>Product management: add, edit, delete, search</li>
-            <li>Barcode scanner support with USB / IP camera</li>
-            <li>Fast billing workflow</li>
-            <li>Professional PDF invoice generation</li>
-            <li>Barcode label PDF generation</li>
-            <li>Hold and resume bills</li>
-            <li>Bill history, search, and reprint</li>
-            <li>Automatic bill number generation</li>
-            <li>Inventory and stock management</li>
-            <li>Settings for app and billing configuration</li>
-            <li>Portable JSON-based local database</li>
-            <li>Windows installer and uninstaller</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
+
+            <div class="change-block">
+              <h3>Features in this release</h3>
+              <ul>
+                <li>Product management: add, edit, delete, search</li>
+                <li>Barcode scanner support with USB / IP camera</li>
+                <li>Fast billing workflow</li>
+                <li>Professional PDF invoice generation</li>
+                <li>Barcode label PDF generation</li>
+                <li>Hold and resume bills</li>
+                <li>Bill history, search, and reprint</li>
+                <li>Automatic bill number generation</li>
+                <li>Inventory and stock management</li>
+                <li>Settings for app and billing configuration</li>
+                <li>Portable JSON-based local database</li>
+                <li>Windows installer and uninstaller</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -394,7 +502,7 @@
            v2.0.0
       ====================================================== -->
 
-      <section class="changelog-entry" id="v2-0-0">
+      <section class="changelog-entry changelog-compact" id="v2-0-0">
 
         <div class="change-header">
           <div>
@@ -404,30 +512,35 @@
         </div>
 
         <p class="change-overview">
-          QuickBill v2.0.0 established the major desktop billing and
-          inventory management feature set. Detailed per-item change notes
-          relative to earlier versions were not published separately in the
-          release documentation. The feature set documented for this release
-          is listed below.
+          Established the major desktop billing and inventory management
+          feature set. Detailed per-item change notes relative to earlier
+          versions were not published separately.
         </p>
 
-        <div class="change-block">
-          <h3>Features in this release</h3>
-          <ul>
-            <li>Product management (add, edit, delete, and search)</li>
-            <li>Barcode scanner support (USB / IP camera)</li>
-            <li>Fast billing system</li>
-            <li>Professional PDF invoice generation</li>
-            <li>Barcode label PDF generator</li>
-            <li>Hold and resume bills</li>
-            <li>Bill history with search and reprint</li>
-            <li>Automatic bill number generation</li>
-            <li>Inventory and stock management</li>
-            <li>Customizable application settings</li>
-            <li>Professional Windows installer and uninstaller</li>
-            <li>Portable JSON-based local database</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
+
+            <div class="change-block">
+              <h3>Features in this release</h3>
+              <ul>
+                <li>Product management (add, edit, delete, and search)</li>
+                <li>Barcode scanner support (USB / IP camera)</li>
+                <li>Fast billing system</li>
+                <li>Professional PDF invoice generation</li>
+                <li>Barcode label PDF generator</li>
+                <li>Hold and resume bills</li>
+                <li>Bill history with search and reprint</li>
+                <li>Automatic bill number generation</li>
+                <li>Inventory and stock management</li>
+                <li>Customizable application settings</li>
+                <li>Professional Windows installer and uninstaller</li>
+                <li>Portable JSON-based local database</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -436,7 +549,7 @@
            v1.0.0
       ====================================================== -->
 
-      <section class="changelog-entry" id="v1-0-0">
+      <section class="changelog-entry changelog-compact" id="v1-0-0">
 
         <div class="change-header">
           <div>
@@ -446,21 +559,27 @@
         </div>
 
         <p class="change-overview">
-          The initial public release of QuickBill. This version introduced
-          a desktop-based inventory and invoicing system developed in Python
-          for small businesses and shop owners.
+          Initial public release. Desktop inventory and invoicing system
+          developed in Python for small businesses and shop owners.
         </p>
 
-        <div class="change-block">
-          <h3>Features in this release</h3>
-          <ul>
-            <li>Inventory management: add, update, and delete products</li>
-            <li>User-friendly interface for navigation and operation</li>
-            <li>Secure data handling for storage and retrieval</li>
-            <li>Scan products with barcode: add products to the bill via barcode scanner</li>
-            <li>Generate bill: download or print the generated bill</li>
-          </ul>
-        </div>
+        <details class="changelog-more">
+          <summary>See full release notes</summary>
+          <div class="changelog-more-body">
+
+            <div class="change-block">
+              <h3>Features in this release</h3>
+              <ul>
+                <li>Inventory management: add, update, and delete products</li>
+                <li>User-friendly interface for navigation and operation</li>
+                <li>Secure data handling for storage and retrieval</li>
+                <li>Scan products with barcode: add products to the bill via barcode scanner</li>
+                <li>Generate bill: download or print the generated bill</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
 
       </section>
 
@@ -476,10 +595,6 @@
 
   </main>
 
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
 
   <footer class="site-footer">
     <div class="container footer-inner">
